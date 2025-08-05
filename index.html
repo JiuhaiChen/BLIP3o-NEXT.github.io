@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>BLIP3o-NEXT: Advanced Multimodal Foundation Model</title>
+        <link rel="icon" type="image/x-icon" href="/static/img/icons/icon.png">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Open Graph -->
+        <meta property="og:url" content="https://xichenpan.com/metaquery/" />
+        <meta property="og:image" content="https://xichenpan.com/metaquery/static/img/preview.png" />
+        <meta property="og:title" content="BLIP3o-NEXT: Advanced Multimodal Understanding and Generation" />
+        <meta property="og:description" content="Introducing BLIP3o-NEXT, a next-generation multimodal model for advanced understanding and generation capabilities" />
+
+        <!-- Twitter -->
+        <meta name="twitter:url" content="https://xichenpan.com/metaquery/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://xichenpan.com/metaquery/static/img/preview.png" />
+        <meta name="twitter:title" content="BLIP3o-NEXT: Advanced Multimodal Understanding and Generation" />
+        <meta name="twitter:description" content="Introducing BLIP3o-NEXT, a next-generation multimodal model for advanced understanding and generation capabilities" />
+
+        <script src="./static/js/distill_template.v2.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+        <script src="https://rawgit.com/nstrayer/slid3r/master/dist/slid3r.js"></script>
+
+        <script defer="" src="./static/js/hider.js"></script>
+        <script src="./static/js/image_interact.js"></script>
+        <script src="./static/js/switch_videos.js"></script>
+
+        <link rel="stylesheet" href="./static/css/style.css">
+        <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+
+        <!-- medium zoom https://github.com/francoischalifour/medium-zoom -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>  <!-- jquery -->
+        <script defer src="./static/js/medium-zoom.min.js"></script>
+        <script defer src="./static/js/zoom.js"></script>
+        <script defer src="./static/js/gallery.js"></script>
+    </head>
+    <body>
+        <div class="header-wrapper" style="background: url('./static/img/background.png') center center / cover no-repeat; position: relative; overflow: hidden;">
+            <!-- Slight overlay for text readability -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.15);"></div>
+            
+            <div class="header-container" id="header-container" style="max-width: 100%; margin: 0 auto; padding: 80px 40px; text-align: center; position: relative; z-index: 1;">
+                <div class="header-content" style="max-width: 1200px; margin: 0 auto;">
+                    <h1 style="margin-top: 0px; font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; color: white; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; text-align: center; letter-spacing: -0.02em; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">BLIP3o-NEXT</h1>
+                        <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); line-height: 1.7; margin-bottom: 3rem; font-weight: 400; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; max-width: 900px; margin-left: auto; margin-right: auto; margin-bottom: 3rem;">
+                            Introducing BLIP3o-NEXT, a improved multimodal foundation model that advances the state of image generation. BLIP3o-NEXT demonstrates exceptional capability in producing high-fidelity images, with a particular strength in accurately following complex user instructions and rendering detailed text.
+                        </p>
+
+                        <div class="icon-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 30px; margin: 3rem 0; text-align: left; max-width: 1100px; margin-left: auto; margin-right: auto;">
+                            <div class="icon-item" style="color: white; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; display: flex; align-items: flex-start; gap: 20px; background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; min-width: 48px; height: 48px;">
+                                    <i class="fas fa-sitemap" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; font-weight: 700; color: white;">AR + Diffusion Architecture</h3>
+                                    <p style="margin: 0; font-weight: 400; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">Combines autoregressive and diffusion models for high-quality image generation.</p>
+                                </div>
+                            </div>
+                            <div class="icon-item" style="color: white; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; display: flex; align-items: flex-start; gap: 20px; background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; min-width: 48px; height: 48px;">
+                                    <i class="fas fa-eye" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; font-weight: 700; color: white;">Discrete Image Token Supervision</h3>
+                                    <p style="margin: 0; font-weight: 400; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">Uses discrete image tokens as additional supervision.</p>
+                                </div>
+                            </div>
+                            <div class="icon-item" style="color: white; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; display: flex; align-items: flex-start; gap: 20px; background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; min-width: 48px; height: 48px;">
+                                    <i class="fas fa-brain" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; font-weight: 700; color: white;">Reinforcement Learning</h3>
+                                    <p style="margin: 0; font-weight: 400; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">GRPO training enhances prompt alignment and text rendering accuracy.</p>
+                                </div>
+                            </div>
+                            <div class="icon-item" style="color: white; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; display: flex; align-items: flex-start; gap: 20px; background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                                <div style="background: rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; min-width: 48px; height: 48px;">
+                                    <i class="fab fa-github" style="color: white; font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; font-weight: 700; color: white;">Fully Open-Source</h3>
+                                    <p style="margin: 0; font-weight: 400; line-height: 1.6; color: rgba(255, 255, 255, 0.8);">All training code, datasets, and models released for full reproducibility.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="button-container" style="display: flex; justify-content: center; gap: 15px; margin-top: 2rem; flex-wrap: wrap;">
+                        <!-- replace arxiv -->
+                        <!-- replace pdf -->
+                        <a href="https://github.com/JiuhaiChen/BLIP3o" class="button" target="_blank" style="background: transparent; color: white; border: 2px solid white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; transition: all 0.3s ease;">
+                            <span class="icon is-small">
+                                <i class="fab fa-github" style="color: white;"></i>
+                            </span>
+                            <span>Code</span>
+                        </a>
+                        <a href="https://huggingface.co/BLIP3o" class="button" target="_blank" style="background: transparent; color: white; border: 2px solid white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; transition: all 0.3s ease;">
+                            <span class="icon is-small">
+                                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face logo" style="height: 1em; filter: brightness(0) invert(1);">
+                            </span>
+                            <span>Model</span>
+                        </a>
+                        <!-- replace image -->
+                        <a href="https://huggingface.co/BLIP3o" class="button" target="_blank" style="background: transparent; color: white; border: 2px solid white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; transition: all 0.3s ease;">
+                            <span class="icon is-small">
+                                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face logo" style="height: 1em; filter: brightness(0) invert(1);">
+                            </span>
+                            <span>Data</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <d-article>
+        <div class="byline">
+            <div class="byline-container">
+                <p>
+                    <a href="https://jiuhaichen.github.io/" class="author-link" target="_blank">Jiuhai Chen<sup>1*</sup></a> &emsp;
+                    <a href="https://scholar.google.com/citations?user=Qcshi8UAAAAJ&hl=en" class="author-link" target="_blank">Zhiyang Xu<sup>2*</sup></a> &emsp;
+                    <a href="https://xichenpan.com/" class="author-link" target="_blank">Xichen Pan<sup>3</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <p></p>
+                </p>
+                <p>
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <p></p>
+                </p>
+                <p>
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <p></p>
+                </p>
+                <p>
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;&emsp;&emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;&emsp;&emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;&emsp;&emsp;
+                    <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
+                    <p></p>
+                </p>
+                <p style="text-align: center;">
+                    <a href="https://ai.meta.com/" class="affiliation-link" target="_blank"><sup>1</sup>Salesforce Research</a> &emsp;
+                    <a href="https://ai.meta.com/" class="affiliation-link" target="_blank"><sup>2</sup>Virginia Tech</a> &emsp;
+                    <a href="https://cs.nyu.edu/home/index.html" class="affiliation-link" target="_blank"><sup>3</sup>New York University</a>
+                </p>
+                <p style="text-align: center; margin-bottom: 0;">
+                    <span class="author-note"><sup>*</sup>Equal Contribution</span>
+                    <!-- <span class="author-note"><sup>&dagger;</sup>Project Lead</span>
+                    <span class="author-note"><sup>&ddagger;</sup>Corresponding Author</span> -->
+                </p>
+            </div>
+        </div>
+        <p class="text abstract">
+            Blogpost Content:
+            <div class="text" style="margin-top: 1.5rem;">
+                <p style="margin-bottom: 1.5rem;"><i class="fas fa-sitemap" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:ARDiffusion" style="color: #2563eb; text-decoration: none;">AR + Diffusion Architecture</a></strong>: Similar with BLIP3o,  BLIP3o-NEXT generates intermediate features via the autoregressive model and then conditions on these features to generate images through the diffusion model.</p>
+                <p style="margin-bottom: 1.5rem;"><i class="fas fa-eye" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:Discrete_token" style="color: #2563eb; text-decoration: none;">Discrete Image Token Supervision</a></strong>: We add SigLIP-2 discrete image token prediction as extra training supervision, jointly optimizing CrossEntropy and the diffusion objective. These two objective training not only accelerates convergence in the image generation training but also yields better prompt alignment and image quality.</p>
+                <p style="margin-bottom: 1.5rem;"><i class="fas fa-brain" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:reinforce_learning" style="color: #2563eb; text-decoration: none;">Reinforcement Learning</a></strong>: The introduction of discrete image tokens unlocks seamless compatibility with existing language-model RL framework. Using Group Relative Policy Optimization (GRPO), we train the BLIP3o-NEXT to improve prompt alignment and text rendering in image generation. </p>
+                <p style="margin-bottom: 1.5rem;"><i class="fas fa-cogs" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:training_recipe" style="color: #2563eb; text-decoration: none;">Fully Open-Source</a></strong>: We release every component of BLIP3o-NEXT: datasets, model weights (including pretrian, instruction tuning and RL model), and complete training pipelines for both multimodal pretraining, instruction-tuning and RL.</p>
+            </div>
+        </p>
+
+        <hr style="margin: 1rem 0;">
+        <div id='MetaQuery' class="vision-block" style="margin-top: 1rem;">
+            <div id="sec:ARDiffusion" class="sub-section">
+                <h1 class="text">AR + Diffusion</h1>
+                    <p class="text">
+                        In the Autoregressive + Diffusion architecture, the autoregressive model (a language model or vision language model) first takes in a user prompt and generates continuous latent embeddings. The diffusion model then generates images conditioned on the latent embeddings.
+                    </p>  
+            </div>
+
+            <div id="sec:Discrete_token" class="sub-section">
+                <h1 class="text">Discrete Image Token Supervision </h1>
+                    <!-- <p class="text">
+                        In the original BLIP3o framework, the autoregressive model and diffusion model are trained independently, with the AR model learning to generate latent embeddings from SigLIP2 while the diffusion model is trained to generate SigLIP2 latent embeddings. This training methodology presents several limitations: first, the AR model is not designed for predicting continuous embeddings, and second, it introduces a significant training-inference distribution gap. Specifically, during training, the diffusion model receives perfect ground-truth SigLIP2 embeddings, whereas during inference, it must operate on potentially noisy embeddings predicted by the AR model.
+                    </p> -->
+
+                    <d-figure>
+                        <figure style="text-align: center;">
+                            <img data-zoomable="" draggable="false" src="static/img/blip3o_next.png" alt="BLIP3o-NEXT Architecture" style="width: 65%; max-width: 700px;">
+                            <figcaption style="text-align: left;">
+                                <strong>Figure 1:</strong> BLIP3o-NEXT architecture with discrete image token supervision. The autoregressive model generates discrete image tokens, and their hidden representations serve as conditions for the diffusion model. We jointly optimize both CrossEntropy and Flow-Matching objective during training.
+                            </figcaption>
+                        </figure>
+                    </d-figure>
+
+                    <p class="text">
+                        In our training pipeline, the AR model learns to predict discrete image tokens via teacher forcing, and the hidden states of these predicted discrete tokens are used as conditioning inputs for the diffusion model. <strong>We jointly optimize a cross-entropy objective on those discrete tokens alongside the diffusion loss for end-to-end image generation.</strong> This approach brings several key benefits:
+                    </p>
+                    
+                    <div class="text">
+                        <p style="margin-bottom: 1rem;"><strong>1)</strong> <strong>Discrete tokens align naturally with autoregressive architectures</strong> compared with continuous features, enabling faster training convergence compared with BLIP3o.</p>
+                        <p style="margin-bottom: 1rem;"><strong>2)</strong> <strong>Autoregressive image token prediction excels at tasks requiring spatial structures</strong> (e.g., rendering text or generating multiple objects composition), while diffusion model excels at producing high visual-fidelity images. By having the AR model lay down a discrete "blueprint" and feeding their hidden representations into the diffusion model, we combine structural accuracy with high visual-fidelity image outputs.</p>
+                        <p style="margin-bottom: 1rem;"><strong>3)</strong> <strong>Training the AR and diffusion model together ensures they see the same distributions</strong> at train and inference time. This joint optimization avoids mismatches that occurs when the diffusion model is trained to reconstruct from features (e.g., CLIP embeddings) while the AR model is separately trained to predict those features.</p>
+                    </div>
+
+                    <p class="text">
+                        To generate discrete image tokens, we apply a vector-quantization (VQ) step that maps continuous SigLIP2 embeddings into a finite set of codebook entries. Training this SigLIP2 quantizer  is similar to the VQ-VAE paradigm, learning both the codebook and encoder/decoder jointly to reconstruct the SigLIP2 feature. Similar to BLIP3o’s findings, semantic features can be well aligned with the autoregressive model compared with VAE latents, thus we quantize SigLIP2’s semantic representations instead of VAE latents. Also SigLIP2 can be used as the image understanding encoder, which unifies the image generation and understanding into one semantic space. 
+                    </p>                         
+            </div>
+        </div>
+
+        <div id='sec:reinforce_learning' class="vision-block">
+            <h1 class="text">Reinforcement Learning</h1>
+            <p class="text">
+                To further enhance prompt alignment and text rendering, we employ Group Relative Policy Optimization (GRPO) to fine-tune the autoregressive model. By introducing discrete image tokens, we seamlessly integrate with existing reinforcement learning frameworks designed for language models. We focus on two verifiable reward tasks:
+            </p>
+            
+            <div class="text">
+                <p style="margin-bottom: 1rem;"><strong>1)</strong> <strong>Prompt Alignment:</strong> verifying count, color, and position (e.g., "generate two red apples," following a GenEval setup).</p>
+                <p style="margin-bottom: 1rem;"><strong>2)</strong> <strong>Text Rendering:</strong> scoring rendered text via an OCR-based evaluator.</p>
+            </div>
+
+            <p class="text">
+                During the RL training phase, the AR model samples discrete image tokens conditioned on the input prompt. The hidden states associated with these tokens are then provided to a diffusion model, which remains frozen during this process, to generate the corresponding images. A reward model subsequently evaluates each image based on prompt alignment or OCR-derived text accuracy, and these reward signals are used to update the AR model via policy gradients. This paradigm leverages and extends established RL methodologies for text generation, opening new avenues for reinforcement learning applications that incorporate both text and image modalities.
+            </p>
+
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/reinforcement_learning.png" alt="GRPO Training Pipeline" style="width: 75%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 2:</strong> GRPO training pipeline for BLIP3o-NEXT. The autoregressive model generates discrete tokens, the frozen diffusion model decodes their hidden states into images, and a reward model provides feedback for policy optimization. Only the AR model parameters are updated during RL training.
+                    </figcaption>
+                </figure>
+            </d-figure>
+            
+        </div>
+        
+        <div id='Performance' class="vision-block">
+            <h1 class="text">Prompt Alignment</h1>
+            
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/geneval_train_reward.png" alt="GenEval GRPO Training Rewards" style="width: 70%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 3:</strong> Training reward progression during GRPO training on GenEval dataset, showing the optimization of reward function over training steps.
+                    </figcaption>
+                </figure>
+            </d-figure>
+            
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/geneval_performance.png" alt="GenEval GRPO Training Performance" style="width: 70%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 4:</strong> GenEval performance improvement during GRPO training, evaluated every 50 training steps from 0 to 400 steps.
+                    </figcaption>
+                </figure>
+            </d-figure>
+            
+            <p class="text">
+                We peform GRPO training on BLIP3o-NEXT leveraging synthesized data and report the plot of the training reward, and both qualitative and quantitative results on the GenEval dataset. The reward function is the same as the official implementation of evaluation metric used for GenEval. We compare our BLIP3o-NEXT to recent strong unified multimodal foundation models, including BLIP3o, FLUX.1-dev, Metaqueries, and BAGEL.
+            </p>
+            <div style="display: flex; flex-direction: column; align-items: center;" class="figure">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                        <tr>
+                            <th style="text-align: left;">Model</th>
+                            <th>Single Obj.</th>
+                            <th>Two Obj.</th>
+                            <th>Counting</th>
+                            <th>Colors</th>
+                            <th>Position</th>
+                            <th>Color Attri.</th>
+                            <th>Overall</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: left;">FLUX.1-dev</td>
+                            <td>0.98</td>
+                            <td>0.93</td>
+                            <td>0.75</td>
+                            <td>0.93</td>
+                            <td>0.68</td>
+                            <td>0.65</td>
+                            <td>0.82</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Metaqueries XL</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0.80<sup>&dagger;</sup></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">BAGEL</td>
+                            <td>0.98</td>
+                            <td>0.95</td>
+                            <td>0.84</td>
+                            <td>0.95</td>
+                            <td>0.78</td>
+                            <td>0.77</td>
+                            <td>0.88<sup>&dagger;</sup></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">BLIP3o</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0.84</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">BLIP3o-NEXT (3B)</td>
+                            <td>0.99</td>
+                            <td>0.95</td>
+                            <td>0.88</td>
+                            <td>0.90</td>
+                            <td>0.92</td>
+                            <td>0.79</td>
+                            <td>0.91</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <figure style="text-align: center;">
+                <figcaption style="text-align: left; width: 100%;">
+                    <strong>Table 4:</strong> Performance evaluation on GenEval. <sup>&dagger;</sup>With Prompt Rewrite.
+                </figcaption>
+            </figure>
+
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/geneval_grpo.png" alt="Multi-object Prompt Following Results" style="width: 100%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 4:</strong> Qualitative results on prompt following.
+                    </figcaption>
+                </figure>
+            </d-figure>
+
+            <h1 class="text">Text Rendering</h1>
+            
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/ocr_train_reward.png" alt="OCR GRPO Training Rewards" style="width: 70%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 5:</strong> OCR training reward progression during GRPO training, showing the optimization of OCR reward function over training steps.
+                    </figcaption>
+                </figure>
+            </d-figure>
+            
+            <p class="text">
+                We peform GRPO training on BLIP3o-NEXT leveraging synthesized data and report the plot of the training reward and quantitative results on prompts with various text. The reward function is an ORC model.
+            </p>
+
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/ocr.png" alt="Text Rendering Results" style="width: 100%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 6:</strong> Qualitative results on Text Rendering.
+                    </figcaption>
+                </figure>
+            </d-figure>
+
+        <div id='sec:training_recipe' class="vision-block">
+            <h1 class="text">Complete Training Recipe</h1>
+            <p class="text">
+                Below we provide a complete training recipe for BLIP3o-NEXT, including hyperparameters and dataset compositions. This comprehensive documentation is designed to facilitate reproducibility and support the open-source research community in building upon our work.
+            </p>
+
+            <div style="display: flex; flex-direction: column; align-items: center;" class="figure">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                        <tr>
+                            <th style="text-align: left;">Stage</th>
+                            <th>Learning Rate</th>
+                            <th>Number of Steps</th>
+                            <th>Batch Size</th>
+                            <th>Dataset</th>
+                            <th>GPUs</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: left;">Pretrain</td>
+                            <td>1e-4</td>
+                            <td>336K</td>
+                            <td>512</td>
+                            <td>BLIP3o-Pretrain</td>
+                            <td>32 × H200</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Finetuning</td>
+                            <td>5e-5</td>
+                            <td>7K</td>
+                            <td>128</td>
+                            <td>BLIP3o-60k + ShareGPT-4o</td>
+                            <td>1 × H100</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">RL-Text</td>
+                            <td>1e-6</td>
+                            <td>900</td>
+                            <td>512</td>
+                            <td>Synthesis prompts</td>
+                            <td>32 × H100</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">RL-Geneval</td>
+                            <td>5e-6</td>
+                            <td>400</td>
+                            <td>256</td>
+                            <td>Synthesis prompts</td>
+                            <td>16 × H100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <figure style="text-align: center;">
+                <figcaption style="text-align: left; width: 100%;">
+                    <strong>Table 5:</strong> Complete training recipe for BLIP3o-NEXT across different training stages.
+                </figcaption>
+            </figure>
+            
+        </div>
+            <!-- <h1 class="text">Text-to-Image Generation</h1>
+            <p class="text">
+                We show that after prompt alignment training on the proposed 2.4M dataset, BLIP3o-NEXT can achieve impressive zero-shot subject-driven generation performance, producing coherent results even with multiple highly customized subjects (the first row of Figure 8). Using various supervision signals, the prompt-aligned BLIP3o-NEXT model surprisingly unlocks novel capabilities like visual association and logo design that go beyond copy-pasting (the second row of Figure 8).
+            </p>
+
+            <d-figure>
+                <figure style="text-align: center;">
+                    <img data-zoomable="" draggable="false" src="static/img/subjectdriven.png" alt="Prompt Alignment" style="width: 80%;">
+                    <figcaption style="text-align: left; width: 100%;">
+                        <strong>Figure 8:</strong> Qualitative results for prompt alignment. Prompt-aligned BLIP3o-NEXT achieves strong subject-driven capability (first row) and can even reason through the multimodal input to generate images (second row).
+                    </figcaption>
+                </figure>
+            </d-figure>             -->
+        </div>
+
+        <div id="acknowledgements" style="position: relative; margin-top: 40px; margin-bottom: 0px;">
+            <h2 class="text" style="margin-top:0px; margin-bottom:10px">Acknowledgements</h2>
+            <p class="text">
+                We thank the research community for their foundational work in language models, multimodal models and diffusion models. Special thanks to the teams behind <a href="https://arxiv.org/abs/2505.09388" target="_blank" style="color: #2563eb; text-decoration: none;">Qwen3</a>, <a href="https://arxiv.org/abs/2501.18427" target="_blank" style="color: #2563eb; text-decoration: none;">SANA 1.5</a>, and <a href="https://huggingface.co/blog/siglip2" target="_blank" style="color: #2563eb; text-decoration: none;">SigLIP2</a>, for their excellent contributions. We also thank <a href="https://arxiv.org/abs/2506.18898" target="_blank" style="color: #2563eb; text-decoration: none;">Tar</a>, to open source excellent VQ-SigLIP2.
+            </p>
+        </div>
+
+        </d-article>
+        <d-appendix>
+            <h3>BibTeX</h3>
+            <p class="bibtex">
+                @misc{chen2025blip3ofamilyfullyopen, <br>
+                    title={BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset}, <br>
+                    author={Jiuhai Chen and Zhiyang Xu and Xichen Pan and Yushi Hu and Can Qin and Tom Goldstein and Lifu Huang and Tianyi Zhou and Saining Xie and Silvio Savarese and Le Xue and Caiming Xiong and Ran Xu}, <br>
+                    year={2025}, <br>
+                    eprint={2505.09568}, <br>
+                    archivePrefix={arXiv}, <br>
+                    primaryClass={cs.CV}, <br>
+                    url={https://arxiv.org/abs/2505.09568}, <br>
+                }
+            </p>
+
+            <p class="bibtex">
+                @misc{blip3oNext2025, <br>
+                    title = {BLIP3o-NEXT: A Next-Generation Multimodal Foundation Model}, <br>
+                    url = {}, <br>
+                    author = {Jiuhai Chen, Zhiyang Xu,  Xichen Pan, Author, Author, Author, Author, Author, Author, Author, Author, Author}, <br>
+                    month = {Aug}, <br>
+                    year = {2025} <br>
+                }
+            </p>
+
+            <d-footnote-list></d-footnote-list>
+            <d-citation-list></d-citation-list>
+        </d-appendix>
+        <!-- bibliography will be inlined during Distill pipeline's pre-rendering -->
+        <d-bibliography src="bibliography.bib"></d-bibliography>
+        <script src="./static/js/nav-bar.js"></script>
+
+        <!-- Legal Links and Copyright -->
+    </body>
+</html>
