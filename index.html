@@ -133,6 +133,7 @@
                     <a href="https://jiuhaichen.github.io/" class="author-link" target="_blank">Jiuhai Chen<sup>1*</sup></a> &emsp;
                     <a href="https://scholar.google.com/citations?user=Qcshi8UAAAAJ&hl=en" class="author-link" target="_blank">Zhiyang Xu<sup>2*</sup></a> &emsp;
                     <a href="https://xichenpan.com/" class="author-link" target="_blank">Xichen Pan<sup>3</sup></a> &emsp;
+                    <a href="https://scholar.google.com/citations?user=v6dmW5cntoMC" class="author-link" target="_blank">Shusheng Yang<sup>3</sup></a> &emsp;
                     <a href="" class="author-link" target="_blank">Author<sup>1</sup></a> &emsp;
                     <p></p>
                 </p>
@@ -173,7 +174,7 @@
             Blogpost Content:
             <div class="text" style="margin-top: 1.5rem;">
                 <p style="margin-bottom: 1.5rem;"><i class="fas fa-sitemap" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:ARDiffusion" style="color: #2563eb; text-decoration: none;">AR + Diffusion Architecture</a></strong>: Similar with BLIP3o,  BLIP3o-NEXT generates intermediate features via the autoregressive model and then conditions on these features to generate images through the diffusion model.</p>
-                <p style="margin-bottom: 1.5rem;"><i class="fas fa-eye" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:Discrete_token" style="color: #2563eb; text-decoration: none;">Discrete Image Token Supervision</a></strong>: We add SigLIP-2 discrete image token prediction as extra training supervision, jointly optimizing CrossEntropy and the diffusion objective. These two objective training not only accelerates convergence in the image generation training but also yields better prompt alignment and image quality.</p>
+                <p style="margin-bottom: 1.5rem;"><i class="fas fa-eye" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:Discrete_token" style="color: #2563eb; text-decoration: none;">Discrete Image Token Supervision</a></strong>: We add discrete SigLIP-2 image token prediction as extra training supervision, jointly optimizing CrossEntropy and the diffusion objective. These two objective training not only accelerates convergence in the image generation training but also yields better prompt alignment and image quality.</p>
                 <p style="margin-bottom: 1.5rem;"><i class="fas fa-brain" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:reinforce_learning" style="color: #2563eb; text-decoration: none;">Reinforcement Learning</a></strong>: The introduction of discrete image tokens unlocks seamless compatibility with existing language-model RL framework. Using Group Relative Policy Optimization (GRPO), we train the BLIP3o-NEXT to improve prompt alignment and text rendering in image generation. </p>
                 <p style="margin-bottom: 1.5rem;"><i class="fas fa-cogs" style="color: #3b82f6; margin-right: 12px; font-size: 1.3rem;"></i><strong><a href="#sec:training_recipe" style="color: #2563eb; text-decoration: none;">Fully Open-Source</a></strong>: We release every component of BLIP3o-NEXT: datasets, model weights (including pretrian, instruction tuning and RL model), and complete training pipelines for both multimodal pretraining, instruction-tuning and RL.</p>
             </div>
@@ -214,7 +215,7 @@
                     </div>
 
                     <p class="text">
-                        To generate discrete image tokens, we apply a vector-quantization (VQ) step that maps continuous SigLIP2 embeddings into a finite set of codebook entries. Training this SigLIP2 quantizer  is similar to the VQ-VAE paradigm, learning both the codebook and encoder/decoder jointly to reconstruct the SigLIP2 feature. Similar to BLIP3o’s findings, semantic features can be well aligned with the autoregressive model compared with VAE latents, thus we quantize SigLIP2’s semantic representations instead of VAE latents. Also SigLIP2 can be used as the image understanding encoder, which unifies the image generation and understanding into one semantic space. 
+                        For discrete image tokens, we apply a vector-quantization (VQ) step that maps continuous SigLIP2 embeddings into a finite set of codebook entries. Training this SigLIP2 quantizer  is similar to the VQ-VAE paradigm, learning both the codebook and encoder/decoder jointly to reconstruct the SigLIP2 feature. Similar to BLIP3o’s findings, semantic features can be well aligned with the autoregressive model compared with VAE latents, thus we quantize SigLIP2’s semantic representations instead of VAE latents. Also SigLIP2 can be used as the image understanding encoder, which unifies the image generation and understanding into one semantic space. 
                     </p>                         
             </div>
         </div>
@@ -481,7 +482,7 @@
             <p class="bibtex">
                 @misc{blip3oNext2025, <br>
                     title = {BLIP3o-NEXT: A Next-Generation Multimodal Foundation Model}, <br>
-                    url = {}, <br>
+                    url = {https://jiuhaichen.github.io/BLIP3o-NEXT.github.io/}, <br>
                     author = {Jiuhai Chen, Zhiyang Xu,  Xichen Pan, Author, Author, Author, Author, Author, Author, Author, Author, Author}, <br>
                     month = {Aug}, <br>
                     year = {2025} <br>
